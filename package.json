@@ -1,0 +1,22 @@
+{
+  "name": "commander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "houston communicator",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tevko/commander.git"
+  },
+  "author": "Tim Evko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tevko/commander/issues"
+  },
+  "homepage": "https://github.com/tevko/commander#readme",
+  "dependencies": {
+    "unzipper": "^0.10.11"
+  }
+}
