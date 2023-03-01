@@ -20,6 +20,7 @@ const Commander = async function Commander({ fetchZipUrl = 'https://DevInfra-dNK
   });
   await writerPromise;
   const {default: f } = await import(`/tmp/package/src/${fileName}`);
+  // add try / catch below - on catch, post to fetchZipUrl with error message and other helpful details
   return f(lambdaEvent);
 };
 
