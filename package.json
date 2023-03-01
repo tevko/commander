@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tevko/commander#readme",
   "dependencies": {
+    "rimraf": "^4.1.2",
     "unzipper": "^0.10.11"
   }
 }
