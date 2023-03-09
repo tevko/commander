@@ -7,6 +7,7 @@ import rimraf from 'rimraf';
 // lambda needs 500mb memory and 1000MB ephemeral storage
 
 const Commander = async function Commander({ fetchZipUrl = 'https://DevInfra-dNKuvJhhwog15wXFxbUYtdQRCOMUyBy3P6RPiJt1Nrk0-s.iap.dev0.run/', lambdaContext, lambdaEvent, fileName = 'lambdaFunc.js' }) {
+  // add is prod flag, 
   const cacheBreaker = Date.now();
   const r = await /* global fetch */ fetch(fetchZipUrl);
   const t = await r.blob();
@@ -15,7 +16,7 @@ const Commander = async function Commander({ fetchZipUrl = 'https://DevInfra-dNK
   const writer = fs.createWriteStream(`/tmp/${cacheBreaker}-package.zip`);
   const writerPromise = new Promise((resolve, reject) => {
     writer.write(buff, (err) => {
-      if (err) reject(err);
+      if (err) return reject(err);
       const str = fs.createReadStream(`/tmp/${cacheBreaker}-package.zip`).pipe(unzip.Extract({ path: `/tmp/${cacheBreaker}-package` }));
       str.on('close', resolve);
     });
